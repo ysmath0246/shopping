@@ -155,6 +155,8 @@ export default function PointShopTab() {
       )}
 
       {/* 사용 내역 리스트 */}
+
+      
       {selectedTab === "logs" && (
         <div className="bg-white border border-gray-200 rounded-lg shadow p-6 space-y-3">
           {logs.map(log => (
