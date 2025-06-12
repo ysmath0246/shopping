@@ -156,31 +156,33 @@ export default function PointShopTab() {
 
       {/* 사용 내역 리스트 */}
 
-      
       {selectedTab === "logs" && (
-        <div className="bg-white border border-gray-200 rounded-lg shadow p-6 space-y-3">
-          {logs.map(log => (
-            <div
-              key={log.id}
-              className="flex justify-between items-center bg-gray-50 rounded p-3 hover:bg-gray-100"
-            >
-              <div>
-                <div className="font-medium">{log.name}</div>
-                <div className="text-sm text-gray-600">
-                  {log.item} · {log.point}pt
-                </div>
-                <div className="text-xs text-gray-400">{log.date}</div>
-              </div>
-              <button
-                onClick={()=>handleDeleteLog(log)}
-                className="text-red-500 hover:text-red-700 text-sm"
-              >
-                삭제
-              </button>
+  <div className="bg-white border border-gray-200 rounded-lg shadow p-6 space-y-3">
+    {logs
+      .sort((a, b) => b.date.localeCompare(a.date))  // 최신순 정렬
+      .map(log => (
+        <div
+          key={log.id}
+          className="flex justify-between items-center bg-gray-50 rounded p-3 hover:bg-gray-100"
+        >
+          <div>
+            <div className="font-medium">{log.name}</div>
+            <div className="text-sm text-gray-600">
+              {log.item} · {log.point}pt
             </div>
-          ))}
+            <div className="text-xs text-gray-400">{log.date}</div>
+          </div>
+          <button
+            onClick={() => handleDeleteLog(log)}
+            className="text-red-500 hover:text-red-700 text-sm"
+          >
+            삭제
+          </button>
         </div>
-      )}
+      ))}
+  </div>
+)}
+
 
       {/* -- 여기에 아래로 “인증 모달” JSX 붙여넣으시면 완벽 복제됩니다 -- */}
       {modalOpen && (
