@@ -202,6 +202,7 @@ export default function PointShopTab() {
     setModalOpen(false)
     setAuthCode("")       // 입력값 초기화
   }}
+
   className="px-4 py-2 rounded border"
 >
                 취소
